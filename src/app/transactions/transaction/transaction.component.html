@@ -16,13 +16,13 @@
 
 <div class="well" *ngIf="data.header">
   <dl class="horizontal">
-    <dt>Family</dt>
+    <dt>智能合约</dt>
     <dd>{{ data.header.family_name }}, v{{ data.header.family_version }}</dd>
 
-    <dt>Signer Public Key</dt>
+    <dt>签名者公钥</dt>
     <dd><a routerLink="/wallet">{{ data.header.signer_public_key || '-' }}</a></dd>
 
-    <dt>Batcher Public Key</dt>
+    <dt>提交者公钥</dt>
     <dd><a routerLink="/wallet">{{ data.header.batcher_public_key || '-' }}</a></dd>
 
     <dt>Nonce</dt>
@@ -34,7 +34,7 @@
 
 <div class="row" *ngIf="data.header && (data.header.inputs || data.header.outputs)">
   <div class="six columns">
-    <h3 class="h3">Inputs</h3>
+    <h3 class="h3">输入</h3>
     <ul class="input-output-list">
       <li *ngFor="let input of data.header.inputs" class="ellipsis">
         <a routerLink="/state-monitor">{{ input }}</a><br/>
@@ -42,7 +42,7 @@
     </ul>
   </div>
   <div class="six columns">
-  <h3 class="h3">Outputs</h3>
+  <h3 class="h3">输出</h3>
     <ul class="input-output-list">
       <li *ngFor="let output of data.header.outputs" class="ellipsis">
         <a routerLink="/state-monitor">{{ output }}</a>
@@ -53,7 +53,7 @@
 
 <ng-container *ngIf="data.header && (data.header.dependencies && data.header.dependencies.length)">
   <hr/>
-  <h3 class="h3">Dependencies</h3>
+  <h3 class="h3">依赖</h3>
   <ul class="dependencies-list">
     <li *ngFor="let dependency of data.header.dependencies" class="ellipsis">
       <a [routerLink]="'/transactions/' + dependency">{{ dependency }}</a><br/>
@@ -63,7 +63,7 @@
 
 <hr/>
 
-<h3 class="h3">Payload</h3>
+<h3 class="h3">交易数据</h3>
 
 <div ace-editor
    [text]="payloadJSON"

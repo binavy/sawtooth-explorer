@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t le999/sawtooth-explorer:0.0.1 .
+docker build -t darksun113/binachain-explorer:0.0.1 .

@@ -2,8 +2,8 @@ version: "2.1"
 
 services:
   sawtooth-explorer:
-    image: le999/sawtooth-explorer:0.0.1
-    container_name: sawtooth-explorer
+    image: darksun113/binachain-explorer:0.0.1
+    container_name: binachain-explore
     ports:
       - "8090:8090"
       - "8091:8091"
@@ -15,4 +15,4 @@ services:
 networks:
   default:
     external:
-      name: docker-compose_default
+      name: sawtooth_default

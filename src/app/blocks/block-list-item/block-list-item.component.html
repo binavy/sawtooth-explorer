@@ -16,7 +16,7 @@
 
 <div class="list-item" [ngClass]="{'active': active}">
   <div class="content row">
-    <p class="title ellipsis twelve columns">Block <a>{{ data.header.block_num }}</a></p>
-    <p class="detail ellipsis twelve columns">{{ data.header.consensus | base64decode }} verified bytes</p>
+    <p class="title ellipsis twelve columns">区块高度 <a>{{ data.header.block_num }}</a></p>
+    <p class="detail ellipsis twelve columns">共识算法：{{ data.header.consensus | base64decode }} verified bytes</p>
   </div>
 </div>

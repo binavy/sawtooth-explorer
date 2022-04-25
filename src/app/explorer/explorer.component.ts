@@ -67,7 +67,7 @@ export class ExplorerComponent implements OnInit {
   previousId: string;
 
   // types of views user can select to see
-  views = ['transactions', 'batches', 'blocks'];
+  views = ['交易', 'batches', 'blocks'];
 
   // component needed to render each item in the list of items (will be added
   // dynamically when the user selects a view type to see)
@@ -167,7 +167,14 @@ export class ExplorerComponent implements OnInit {
    * @param viewType {string} - type of view to change to
    */
   onChangeViewType(viewType: string): void {
-    this.viewType = viewType;
+    if(viewType == "交易")
+      this.viewType = "transactions";
+    else if (viewType == "批量")
+      this.viewType = "batchess";
+    else if (viewType == "区块")
+      this.viewType = "blocks";
+    else 
+      this.viewType = viewType;
     this.currentHead = null;
     this.nextPosition = null;
     this.navPageIndex = 0;

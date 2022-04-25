@@ -45,7 +45,7 @@ export class EntityDetailComponent implements OnInit, OnDestroy {
               private snackBar: MatSnackBar) {}
 
   // name of the collection reached via API where an entity can be fetched
-  // e.g., 'transactions', 'blocks'
+  // e.g., '交易', 'blocks'
   @Input() collection: string;
 
   // name of the entity for display
