@@ -88,7 +88,7 @@
             </ng-container>
             <ng-container *ngIf="viewType === 'batches'">
               <h2 class="h2 with-subheader">
-                批量详情<br/>
+                交易集合详情<br/>
               </h2>
               <p class="id">ID: <a [routerLink]="'/batches/' + selectedItem.header_signature">{{ selectedItem.header_signature }}</a></p>
               <batch [data]="selectedItem"></batch>

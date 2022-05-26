@@ -20,6 +20,7 @@ import { Base64DecodePipe } from '../../pipes/base64-decode/base64-decode.pipe';
 import { UIAceDataTransformPipe } from
   '../../pipes/ui-ace-data-transform/ui-ace-data-transform.pipe';
 
+import { Buffer } from 'buffer';
 /**
  * A component that formats all the data associated with a transaction for
  * display.
@@ -40,6 +41,7 @@ export class TransactionComponent implements OnInit, OnChanges {
 
   // data stringified for Angular UI Ace to display
   payloadJSON = '{}';
+  payloadData = '';
 
   // set default UI Ace display to show as plain text (no syntax highlighting)
   aceMode = 'text';
@@ -70,6 +72,10 @@ export class TransactionComponent implements OnInit, OnChanges {
     // format payload for Angular UI Ace
     let formatRes = this.getFormatData(payloadData);
     this.payloadJSON = formatRes.data;
+    let json = JSON.parse(this.payloadJSON);
+    let buff = new Buffer(json.payload, 'base64');
+    this.payloadData = buff.toString('ascii');
+    this.payloadJSON += "\n// 交易解码（JSON）：" +  this.payloadData;
     this.aceMode = formatRes.aceDisplayMode;
   }
 
